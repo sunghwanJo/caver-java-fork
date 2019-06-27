@@ -9,14 +9,14 @@ jobs:
       - checkout
       - restore_cache:
           key: circleci-caver-java-{{ checksum "build.gradle" }}
-      - run: ./gradlew build --debug
+      - run: ./gradlew build
   deploy:
     working_directory: ~/circleci-caver-java
     docker:
       - image: circleci/openjdk:8-jdk-browsers
     steps:
       - checkout
-      - run: ./gradlew release --debug
+      - run: ./gradlew release
 
 workflows:
   version: 2.1
