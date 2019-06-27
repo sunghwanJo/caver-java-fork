@@ -9,7 +9,7 @@ jobs:
       - checkout
       - restore_cache:
           key: circleci-caver-java-{{ checksum "build.gradle" }}
-      - run: ./gradlew build
+      - run: ./gradlew build --scan
   deploy:
     working_directory: ~/circleci-caver-java
     docker:
